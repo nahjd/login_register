@@ -7,6 +7,7 @@ import {
   Field,
   ErrorMessage,
 } from "formik";
+import { v4 as uuidv4 } from "uuid";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./register.scss";
@@ -20,7 +21,6 @@ interface MyFormValues {
 const Register = () => {
   const navigate = useNavigate();
 
-  const initialValues: MyFormValues = { email: "", userName: "", password: "" };
   return (
     <>
       <div className="container">
@@ -38,7 +38,11 @@ const Register = () => {
             </b>
             <br />
             <Formik
-              initialValues={initialValues}
+              initialValues={{
+                email: "",
+                userName: "",
+                password: "",
+              }}
               validate={(values) => {
                 const errors: Partial<MyFormValues> = {};
                 if (!values.email) {
@@ -50,21 +54,24 @@ const Register = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values, actions) => {
-                console.log(values);
-                axios
-                  .post("http://localhost:5000/users/", values)
-                  .then((res) => {
-                    console.log(res);
+              onSubmit={(values) => {
+                let id = uuidv4();
+                console.log({ ...values, id });
+                let obj = {
+                  ...values,
+                  id,
+                };
+                axios.post("http://localhost:5000/users/", obj).then((res) => {
+                  // console.log(res);
 
-                    if (res.status === 201) {
-                      alert("bu email art;q qeydiyyatdan kecib");
-                    }
-                    if (res.status === 200) {
-                      alert("qeydiyyat ugurla tamamlandi");
-                      navigate("/login");
-                    }
-                  });
+                  if (res.status === 201) {
+                    alert("bu email artiq qeydiyyatdan kecib");
+                  }
+                  if (res.status === 200) {
+                    alert("qeydiyyat ugurla tamamlandi");
+                    navigate("/login");
+                  }
+                });
               }}
             >
               <Form>

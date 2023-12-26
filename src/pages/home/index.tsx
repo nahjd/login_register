@@ -4,6 +4,7 @@ import { UserStateTy, getAllProducts } from "./../../redux/slice/userSlice";
 
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
+import Navbar from "./../navbar/sidenav.tsx";
 
 interface ProdElem {
   name: string;
@@ -25,7 +26,7 @@ const Home = () => {
     // dispatch(getAllProducts());
     const token = localStorage.getItem("token");
     console.log(token);
-    axios("http://localhost:5000/products", {
+    axios("http://localhost:5000/users/", {
       headers: {
         Authorization: `barear ${token}`,
       },
@@ -37,15 +38,9 @@ const Home = () => {
 
   return (
     <div>
-      Home
       {isLogin ? (
         <>
-          <ul>
-            {data &&
-              data.map((elem: ProdElem, i: number) => {
-                return <li key={i}>{elem.name}</li>;
-              })}
-          </ul>
+          <Navbar />
         </>
       ) : (
         <Login />

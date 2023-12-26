@@ -8,19 +8,22 @@ import {
   ErrorMessage,
 } from "formik";
 import axios from "axios";
+import { login } from "./../../redux/slice/userSlice";
+
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 import "./../register/register.scss";
 
 interface MyFormValues {
   email: string;
-  userName: string;
+  // userName: string;
   password: string;
 }
 
-const Register = () => {
+const Login = () => {
+  const initialValues: MyFormValues = { email: "", password: "" };
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const initialValues: MyFormValues = { email: "", userName: "", password: "" };
   return (
     <>
       <div className="container">
@@ -50,20 +53,16 @@ const Register = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values, actions) => {
-                console.log(values);
+              onSubmit={(values) => {
+                // console.log(values);
                 axios
                   .post("http://localhost:5000/users/", values)
                   .then((res) => {
-                    console.log(res);
+                    console.log(res.data);
+                    localStorage.setItem("token", res.data);
 
-                    if (res.status === 201) {
-                      alert("bu email art;q qeydiyyatdan kecib");
-                    }
-                    if (res.status === 200) {
-                      alert("qeydiyyat ugurla tamamlandi");
-                      navigate("/");
-                    }
+                    dispatch(login(true));
+                    navigate("/");
                   });
               }}
             >
@@ -72,14 +71,14 @@ const Register = () => {
                 <Field id="email" name="email" placeholder="Email " />
                 <ErrorMessage name="email" component="div" />
                 <br />
-                <label htmlFor="userName">Username</label>
+                {/* <label htmlFor="userName">Username</label>
                 <Field
                   style={{ marginRight: "31px" }}
                   id="userName"
                   name="userName"
                   placeholder="Username "
                 />
-                <br />
+                <br /> */}
                 <label htmlFor="password">Password</label>
                 <Field
                   style={{ marginRight: "28px" }}
@@ -99,4 +98,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default Login;
