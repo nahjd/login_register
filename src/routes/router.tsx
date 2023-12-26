@@ -1,6 +1,6 @@
-import Home from "./../src/pages/home/index";
-import Login from "./../src/pages/login/intex";
-import Register from "./../src/pages/register/index";
+import Home from "./../pages/home/index";
+import Login from "../pages/login/index";
+import Register from "./../pages/register/index";
 
 export const routes = [
   {

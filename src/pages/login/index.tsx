@@ -9,7 +9,7 @@ import {
 } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./register.scss";
+import "./../register/register.scss";
 
 interface MyFormValues {
   email: string;
@@ -32,7 +32,7 @@ const Register = () => {
         </div>
         <div className="right">
           <div className="loginn">
-            <h2>Register</h2>
+            <h2>Login</h2>
             <b>
               <p>Please login to continue</p>
             </b>
@@ -62,7 +62,7 @@ const Register = () => {
                     }
                     if (res.status === 200) {
                       alert("qeydiyyat ugurla tamamlandi");
-                      navigate("/login");
+                      navigate("/");
                     }
                   });
               }}
@@ -89,7 +89,7 @@ const Register = () => {
                   placeholder="Password"
                 />
                 <br />
-                <button type="submit">Register</button>
+                <button type="submit">Login</button>
               </Form>
             </Formik>
           </div>

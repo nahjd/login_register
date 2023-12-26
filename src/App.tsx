@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { routes } from "./../routes/router";
+import { routes } from "./routes/router";
 import "./App.css";
 
 const router = createBrowserRouter(routes);
