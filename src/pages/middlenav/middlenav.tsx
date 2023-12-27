@@ -14,7 +14,7 @@ const middlenav = (props: Props) => {
                 alt=""
               />
             </div>
-            <div className="text-container">nahid</div>
+            <div className="text-container">Nahid</div>
           </div>
           <div className="content">
             <div className="img-container">
@@ -55,7 +55,7 @@ const middlenav = (props: Props) => {
           <div className="content">
             <div className="img-container">
               <img
-                src="https://images.pexels.com/photos/10041279/pexels-photo-10041279.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                src="https://i.pinimg.com/736x/1e/c2/5f/1ec25f6e736c6a7b281d3b202dfd29ff.jpg"
                 alt=""
               />
             </div>
@@ -132,6 +132,15 @@ const middlenav = (props: Props) => {
               />
             </div>
             <div className="text-container">Semaye</div>
+          </div>
+          <div className="content">
+            <div className="img-container">
+              <img
+                src="https://images.pexels.com/photos/1308881/pexels-photo-1308881.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                alt=""
+              />
+            </div>
+            <div className="text-container">Ayan</div>
           </div>
         </div>
       </div>

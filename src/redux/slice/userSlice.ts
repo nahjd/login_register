@@ -8,7 +8,7 @@ export const getAllProducts = createAsyncThunk<
   void,
   { state: UserStateTy }
 >("/getProducts", async () => {
-  const products = await axios("http://localhost:5000/products");
+  const products = await axios("http://localhost:5000/users");
 
   return products.data;
 });

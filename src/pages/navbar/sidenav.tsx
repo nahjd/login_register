@@ -18,33 +18,22 @@ import ExploreIcon from "@mui/icons-material/Explore";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
+import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 
 function Navbar() {
   const [search, setSearch] = useState<string>("");
-  const [showResults, setShowResults] = useState<boolean>(false);
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
-  //   const dispatch = useDispatch();
-  //   const { news, loading, error } = useSelector(
-  //     (state: RootState) => state.news
-  //   );
-  //   let newsData = news;
-  //   useEffect(() => {
-  //     dispatch(fetchNews());
-  //   }, [dispatch]);
-  //   console.log(newsData);
+  const [data, setData] = React.useState<null | HTMLElement>(null);
 
-  //   const filteredNews = newsData.filter((item) =>
-  //     item.title.toLowerCase().includes(search.toLowerCase())
-  //   );
-  //   console.log(filteredNews);
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
+    setData(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
+    setData(null);
+  };
+
+  const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(e.target.value);
   };
 
   return (
@@ -67,7 +56,7 @@ function Navbar() {
             component="a"
             href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 40,
+              mr: 2,
               display: { md: "flex" },
               fontFamily: "monospace",
               fontWeight: 500,
@@ -93,7 +82,7 @@ function Navbar() {
                   style={{
                     position: "absolute",
                     bottom: 0,
-                    right: 280,
+                    right: "280px",
                     maxWidth: "100px",
                     height: "60px",
                   }}
@@ -115,7 +104,7 @@ function Navbar() {
             </IconButton>
             <Menu
               id="menu-appbar"
-              anchorEl={anchorElNav}
+              anchorEl={data}
               anchorOrigin={{
                 vertical: "bottom",
                 horizontal: "right",
@@ -125,15 +114,12 @@ function Navbar() {
                 vertical: "top",
                 horizontal: "right",
               }}
-              open={Boolean(anchorElNav)}
+              open={Boolean(data)}
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* <MenuItem onClick={handleCloseNavMenu}>
-                <Typography textAlign="center">Notification</Typography>
-              </MenuItem> */}
               <MenuItem onClick={handleCloseNavMenu}>
                 <Typography textAlign="center">Friends</Typography>
               </MenuItem>
@@ -195,32 +181,33 @@ function Navbar() {
             >
               <ExploreIcon style={{ fontSize: "30px" }} />
             </Button>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "#8A89C0",
-                display: "block",
-                fontWeight: "700",
-                "&:hover": {
-                  color: "white",
-                },
-              }}
-            >
-              <GroupAddIcon style={{ fontSize: "30px" }} />
-            </Button>
+            <Link to="/addfriend">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "#8A89C0",
+                  display: "block",
+                  fontWeight: "700",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              >
+                <GroupAddIcon style={{ fontSize: "30px" }} />
+              </Button>
+            </Link>
             <Button>
               <input
                 type="text"
+                placeholder="Search adding..."
+                value={search}
+                onChange={handleSearchChange}
                 style={{
                   borderRadius: "10px",
                   borderWidth: "1px",
                   borderColor: "grey",
                 }}
-                // onChange={(e) => {
-                //   setSearch(e.target.value);
-                //   setShowResults(!!e.target.value);
-                // }}
               />{" "}
               <SearchIcon style={{ color: "#8A89C0" }} />
             </Button>
@@ -238,6 +225,22 @@ function Navbar() {
             >
               <SettingsIcon style={{ fontSize: "30px" }} />
             </Button>
+            <Link to="/register">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "#8A89C0",
+                  display: "block",
+                  fontWeight: "700",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              >
+                <ExitToAppIcon style={{ fontSize: "30px" }} />
+              </Button>
+            </Link>
           </Box>
         </Toolbar>
       </Container>
