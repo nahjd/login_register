@@ -1,0 +1,14 @@
+#user_posters {
+  position: relative;
+  top: 150px;
+
+  .id {
+    display: flex;
+    flex-wrap: wrap;
+
+    .postcards {
+      margin-top: 20px;
+      background-color: white;
+    }
+  }
+}
