@@ -51,7 +51,7 @@ const UserPosts = () => {
             {user.posts.map((post: Post) => (
               <Card
                 key={post.f_Id}
-                sx={{ maxWidth: 1280 }}
+                sx={{ maxWidth: 880, margin: "0 auto" }}
                 className="postcards"
               >
                 <CardContent style={{ display: "flex", gap: "10px" }}>
@@ -75,7 +75,7 @@ const UserPosts = () => {
                   </Typography>
                 </CardContent>
                 <CardMedia
-                  sx={{ height: 900, width: 1200 }}
+                  sx={{ height: 600, width: 700 }}
                   image={post.imageSrc}
                   title="post image"
                 />

@@ -20,6 +20,7 @@ interface MyFormValues {
 
 const Register = () => {
   const navigate = useNavigate();
+  const [emailTaken, setEmailTaken] = React.useState(false);
 
   return (
     <>
@@ -54,23 +55,21 @@ const Register = () => {
                 }
                 return errors;
               }}
-              onSubmit={(values) => {
+              onSubmit={(values, { setSubmitting }) => {
                 let id = uuidv4();
-                console.log({ ...values, id });
                 let obj = {
                   ...values,
                   id,
                 };
                 axios.post("http://localhost:5000/users/", obj).then((res) => {
-                  // console.log(res);
-
                   if (res.status === 201) {
-                    alert("bu email artiq qeydiyyatdan kecib");
-                  }
-                  if (res.status === 200) {
-                    alert("qeydiyyat ugurla tamamlandi");
+                    setEmailTaken(true);
+                  } else if (res.status === 200) {
+                    setEmailTaken(false);
+                    alert("Registration successful");
                     navigate("/login");
                   }
+                  setSubmitting(false);
                 });
               }}
             >
@@ -78,6 +77,9 @@ const Register = () => {
                 <label htmlFor="email">Email</label>
                 <Field id="email" name="email" placeholder="Email " />
                 <ErrorMessage name="email" component="div" />
+                {emailTaken && (
+                  <div style={{ color: "red" }}>Email is already taken</div>
+                )}
                 <br />
                 <label htmlFor="userName">Username</label>
                 <Field
