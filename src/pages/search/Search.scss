@@ -1,0 +1,138 @@
+// .search-section {
+//   width: 1440px;
+//   min-height: 100vh;
+//   padding-bottom: 20px;
+//   background-color: #9a86ff;
+//   .search-header {
+//     padding-top: 15px;
+//     input {
+//       width: 98%;
+//       height: 40px;
+//       display: block;
+//       margin: auto;
+//       border-radius: 5px;
+//       border: 1px solid yellow;
+//       padding: 10px;
+//       font-size: 15px;
+//       padding-top: 15px;
+//       &:focus {
+//         outline: none;
+//         border-color: green;
+//         box-shadow: 0 0 5px #59189a73;
+//       }
+//     }
+//   }
+
+//   .founded-users {
+//     width: 98%;
+//     padding: 10px;
+//     background-color: green;
+//     border-radius: 8px;
+//     margin: 30px auto;
+//     .suggested-user {
+//       width: 90%;
+//       height: 90px;
+//       display: flex;
+//       justify-content: space-between;
+//       align-items: center;
+//       .about-user {
+//         display: flex;
+//         justify-content: flex-start;
+//         align-items: center;
+//         gap: 15px;
+//         .user-img {
+//           width: 70px;
+//           height: 70px;
+//           border-radius: 50%;
+//           img {
+//             width: 100%;
+//             height: 100%;
+//             border-radius: 50%;
+//             overflow: hidden;
+//           }
+//         }
+//         .userName-follower {
+//           display: flex;
+//           flex-direction: column;
+//           justify-content: center;
+//           align-items: flex-start;
+//           gap: 7px;
+//         }
+//       }
+
+//       .follow-btn {
+//         width: 100px;
+//         height: 30px;
+//         color: blue;
+//         font-weight: 650;
+//         font-size: 16px;
+//         border: none;
+//         text-align: center;
+//         &:hover {
+//           border: 1px solid blue;
+//           border-radius: 5px;
+//           text-align: center;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// // home search
+// .home-searched-user {
+//   margin-top: 20px;
+//   width: 100%;
+//   padding-bottom: 20px;
+//   background-color: green;
+//   position: absolute;
+//   z-index: 2000;
+//   color: black;
+//   border-radius: 8px;
+//   padding: 10px;
+//   .suggested-user {
+//     width: 90%;
+//     height: 90px;
+//     display: flex;
+//     justify-content: space-between;
+//     align-items: center;
+//     .about-user {
+//       display: flex;
+//       justify-content: flex-start;
+//       align-items: center;
+//       gap: 15px;
+//       .user-img {
+//         width: 70px;
+//         height: 70px;
+//         border-radius: 50%;
+//         img {
+//           width: 100%;
+//           height: 100%;
+//           border-radius: 50%;
+//           overflow: hidden;
+//         }
+//       }
+//       .userName-follower {
+//         display: flex;
+//         flex-direction: column;
+//         justify-content: center;
+//         align-items: flex-start;
+//         gap: 7px;
+//       }
+//     }
+
+//     .follow-btn {
+//       width: 100px;
+//       height: 30px;
+//       color: blue;
+//       font-weight: 650;
+//       font-size: 16px;
+//       border: none;
+//       text-align: center;
+//       &:hover {
+//         border: 1px solid blue;
+//         border-radius: 5px;
+//         text-align: center;
+//       }
+//     }
+//   }
+// }

@@ -19,6 +19,8 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SettingsIcon from "@mui/icons-material/Settings";
 import GroupAddIcon from "@mui/icons-material/GroupAdd";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
+import EmailIcon from "@mui/icons-material/Email";
+import AddBoxIcon from "@mui/icons-material/AddBox";
 
 function Navbar() {
   const [search, setSearch] = useState<string>("");
@@ -133,22 +135,24 @@ function Navbar() {
             </Menu>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "white",
-                display: "block",
-                fontWeight: "900",
-                "&:hover": {
+            <Link to="/notification">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
                   color: "white",
-                },
-              }}
-            >
-              <CircleNotificationsIcon
-                style={{ color: "#8A89C0", fontSize: "30px" }}
-              />
-            </Button>
+                  display: "block",
+                  fontWeight: "900",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              >
+                <CircleNotificationsIcon
+                  style={{ color: "#8A89C0", fontSize: "30px" }}
+                />
+              </Button>
+            </Link>
             <Link to="/about">
               <Button
                 onClick={handleCloseNavMenu}
@@ -167,20 +171,39 @@ function Navbar() {
                 />
               </Button>
             </Link>
-            <Button
-              onClick={handleCloseNavMenu}
-              sx={{
-                my: 2,
-                color: "#8A89C0",
-                display: "block",
-                fontWeight: "700",
-                "&:hover": {
-                  color: "white",
-                },
-              }}
-            >
-              <ExploreIcon style={{ fontSize: "30px" }} />
-            </Button>
+            <Link to="/direct">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "#8A89C0",
+                  display: "block",
+                  fontWeight: "700",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              >
+                <EmailIcon style={{ fontSize: "30px" }} />
+              </Button>
+            </Link>
+            <Link to="/creat">
+              <Button
+                onClick={handleCloseNavMenu}
+                sx={{
+                  my: 2,
+                  color: "#8A89C0",
+                  display: "block",
+                  fontWeight: "700",
+                  "&:hover": {
+                    color: "white",
+                  },
+                }}
+              >
+                <AddBoxIcon style={{ fontSize: "30px" }} />
+              </Button>
+            </Link>
+
             <Link to="/addfriend">
               <Button
                 onClick={handleCloseNavMenu}

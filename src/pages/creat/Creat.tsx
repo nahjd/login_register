@@ -1,16 +1,14 @@
 import React from "react";
 import Navbar from "./../navbar/sidenav";
-import "./addfriend.scss";
-
 type Props = {};
 
-const addfriend = (props: Props) => {
+const Creat = (props: Props) => {
   return (
     <>
       <Navbar />
-      <h1>add friend</h1>
+      <h1>Create</h1>
     </>
   );
 };
 
-export default addfriend;
+export default Creat;

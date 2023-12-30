@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+
+// direct
+.directt {
+  width: 100%;
+  .direct-headerr {
+    position: relative;
+    bottom: 205px;
+    width: 100%;
+    height: 60px;
+    // padding: 20px;
+    gap: 1350px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .messages {
+      position: relative;
+      right: 330px;
+      font-weight: 800;
+      font-size: 18px;
+    }
+    .requests {
+      color: #5a189a;
+      font-size: 18px;
+    }
+  }
+  .containerrrr {
+    position: relative;
+    bottom: 180px;
+    right: 340px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    .my-direct-friend-box {
+      width: 100%;
+      height: 90px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      gap: 15px;
+      .user-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+      }
+      .userName-bio {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 7px;
+      }
+    }
+  }
+}

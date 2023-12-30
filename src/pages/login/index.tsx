@@ -8,9 +8,9 @@ import {
   ErrorMessage,
 } from "formik";
 import axios from "axios";
-import { login } from "./../../redux/slice/userSlice";
+import { login, loginUser } from "./../../redux/slice/userSlice";
 
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import "./../register/register.scss";
 
@@ -54,15 +54,18 @@ const Login = () => {
                 return errors;
               }}
               onSubmit={(values) => {
-                // console.log(values);
+                localStorage.setItem("user", JSON.stringify(values));
                 axios
                   .post("http://localhost:5000/users/", values)
                   .then((res) => {
                     console.log(res.data);
-                    localStorage.setItem("token", res.data);
 
-                    dispatch(login(true));
-                    navigate("/");
+                    if (res.status == 200) {
+                      localStorage.setItem("token", res.data);
+                      dispatch(login(true));
+                      dispatch(loginUser(values));
+                      navigate("/");
+                    }
                   });
               }}
             >
@@ -91,6 +94,27 @@ const Login = () => {
                 <button type="submit">Login</button>
               </Form>
             </Formik>
+
+            <p style={{ marginTop: "25px" }}>
+              Don't have an account yet?{" "}
+              <Link to="/register">
+                {" "}
+                <span
+                  style={{
+                    padding: "5px",
+                    textAlign: "center",
+                    color: "white",
+                    fontSize: "19px",
+                    backgroundColor: "#03045E",
+                    borderRadius: "8px",
+                    border: "none",
+                  }}
+                  className="sign-up"
+                >
+                  Sign up
+                </span>
+              </Link>
+            </p>
           </div>
         </div>
       </div>
